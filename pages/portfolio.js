@@ -19,7 +19,7 @@ class Portfolio extends React.Component {
   render() {
     const { portfolio } = this.props;
     return (
-      <Baselayout>
+      <Baselayout {...this.props.auth}>
         <h2>Detail Portfolio</h2>
         <h3>{portfolio.title}</h3>
         <p>body: {portfolio.body}</p>

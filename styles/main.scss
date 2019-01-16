@@ -1,0 +1,44 @@
+@import "./shared/fonts";
+@import "./shared/colors";
+
+@import "./header";
+@import "./basepage";
+@import "./portfolios";
+
+@import "./index";
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.self-typed {
+  font-size: 1.3rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.error {
+  margin-top: 3px;
+  color: red;
+  font-weight: 700;
+  background-color: white;
+  border: 4px solid red;
+  border-radius: 5px;
+  padding: 0.4rem;
+}

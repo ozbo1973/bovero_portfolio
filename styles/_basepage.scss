@@ -1,0 +1,15 @@
+.base-page {
+  padding: 150px 0 100px 0;
+  color: black;
+  background-color: #ecedee;
+  min-height: 100vh;
+
+  .page-header {
+    .page-header-title {
+      font-weight: 700;
+      color: black;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+  }
+}
