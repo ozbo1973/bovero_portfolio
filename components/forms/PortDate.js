@@ -8,6 +8,15 @@ import "react-datepicker/dist/react-datepicker.css";
 class PortDate extends React.Component {
   state = { dateValue: Moment(), isHidden: false };
 
+  componentDidMount() {
+    const { datevalue, fromPage } = this.props;
+    let isHidden = fromPage === "update" && !datevalue ? true : false;
+
+    const dateValue = datevalue ? Moment(datevalue) : Moment();
+
+    this.setState({ dateValue, isHidden });
+  }
+
   handleChange = date => {
     const { setFieldValue, setFieldTouched } = this.props.form;
     const { name } = this.props.field;
@@ -52,6 +61,7 @@ class PortDate extends React.Component {
   };
 
   renderEndDateButton = ({ name }) => {
+    const { dateValue } = this.state;
     if (name !== "endDate") {
       return null;
     }

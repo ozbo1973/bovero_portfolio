@@ -1,6 +1,6 @@
 import React from "react";
 import withAuth from "../components/hoc/withAuth";
-import { secretDataApi } from "../actions";
+import { portfolioAPI } from "../actions";
 import Baselayout from "../components/layouts/Baselayout";
 import BasePage from "../components/layouts/BasePage";
 
@@ -9,7 +9,7 @@ class Secret extends React.Component {
 
   static async getInitialProps({ req }) {
     const superSecret = "Super Secret Value";
-    const res = await secretDataApi(req).get("/secret");
+    const res = await portfolioAPI(req).get("/secret");
 
     return { secretData: res.data };
   }

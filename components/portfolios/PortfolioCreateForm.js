@@ -1,35 +1,52 @@
 import React from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import {
-  INTITIAL_VALUES,
-  renderFormFields,
-  validateForm
-} from "../../helpers/portfolio_uitls";
+import { Router } from "../../routes";
 
-import { Button } from "reactstrap";
+import { Formik, Form } from "formik";
+import { renderFormFields, validateForm } from "../../helpers/portfolio_uitls";
 
-const PortfolioCreateForm = props => (
-  <div>
-    <Formik
-      initialValues={INTITIAL_VALUES}
-      validate={validateForm}
-      onSubmit={props.onSubmit}
-    >
-      {({ isSubmitting }) => (
-        <Form>
-          {renderFormFields()}
-          <Button
-            color="success"
-            size="lg"
-            type="submit"
-            disabled={isSubmitting}
-          >
-            Create
-          </Button>
-        </Form>
-      )}
-    </Formik>
-  </div>
-);
+import { Alert, Button, FormGroup } from "reactstrap";
+
+const PortfolioCreateForm = ({
+  initialValues,
+  onSubmit,
+  error,
+  submitButtonText,
+  fromPage
+}) => {
+  return (
+    <div>
+      <Formik
+        initialValues={initialValues}
+        validate={validateForm}
+        onSubmit={onSubmit}
+      >
+        {({ isSubmitting }) => (
+          <Form>
+            {renderFormFields(initialValues, fromPage)}
+            {error && <Alert color="danger">{error}</Alert>}
+            <FormGroup>
+              <Button
+                color="success"
+                size="lg"
+                type="submit"
+                disabled={isSubmitting}
+              >
+                {submitButtonText}
+              </Button>{" "}
+              <Button
+                onClick={() => Router.pushRoute("/portfolios")}
+                color="secondary"
+                size="lg"
+                type="submit"
+              >
+                Cancel
+              </Button>
+            </FormGroup>
+          </Form>
+        )}
+      </Formik>
+    </div>
+  );
+};
 
 export default PortfolioCreateForm;

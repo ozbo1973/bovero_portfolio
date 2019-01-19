@@ -1,8 +1,13 @@
 const express = require("express");
 const next = require("next");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+
 const routes = require("../routes");
 const authServices = require("./services/auth");
+const config = require("./config");
+const bookRoutes = require("./routes/book");
+const portfolioRoutes = require("./routes/portfolios");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -15,7 +20,7 @@ const secretData = [
 
 mongoose
   .connect(
-    ,
+    config.DB_URI,
     { useNewUrlParser: true }
   )
   .then(() => console.log("Database Connected"))
@@ -25,6 +30,10 @@ app
   .prepare()
   .then(() => {
     const server = express();
+    server.use(bodyParser.json());
+
+    server.use("/api/v1/book", bookRoutes);
+    server.use("/api/v1/portfolios", portfolioRoutes);
 
     server.get("/api/v1/secret", authServices.checkJWT, (req, res) => {
       res.json(secretData);
