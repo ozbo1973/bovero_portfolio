@@ -37,7 +37,23 @@
   }
 }
 
+.port-navbar-dropdown-menu {
+  background-color: $secondary;
+
+  button:hover {
+    background-color: transparent;
+  }
+}
+
 .port-navbar.port-nav-base.port-nav-default {
   padding: 30px;
   background-color: $secondary !important;
+}
+
+.menu-open {
+  background-color: $secondary;
+}
+
+.menu-close {
+  transition: 1s;
 }

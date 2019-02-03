@@ -1,9 +1,11 @@
 import React from "react";
 import auth0 from "../services/auth";
 import App, { Container } from "next/app";
+import { ToastContainer } from "react-toastify";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/main.scss";
+import "react-toastify/dist/ReactToastify.min.css";
 
 const namespace = "http://localhost:300";
 
@@ -30,6 +32,7 @@ export default class MyApp extends App {
 
     return (
       <Container>
+        <ToastContainer autoClose={2500} />
         <Component {...pageProps} auth={auth} />
       </Container>
     );

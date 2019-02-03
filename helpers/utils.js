@@ -28,3 +28,10 @@ export const pickObj = (obj, fields) => {
     return acc;
   }, {});
 };
+
+export const shortenText = (text, maxlength) => {
+  if (text && text.length > maxlength) {
+    return `${text.substring(0, maxlength)}...`;
+  }
+  return text;
+};

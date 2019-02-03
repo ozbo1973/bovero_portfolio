@@ -15,12 +15,17 @@ const Baselayout = props => {
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
           crossorigin="anonymous"
         />
+        <link
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+          rel="stylesheet"
+        />
       </Head>
       <div className="layout-container">
         <Header
           className={`port-nav-${headerType}`}
           isAuthenticated={props.isAuthenticated}
           user={props.user}
+          isSiteOwner={props.isSiteOwner}
         />
 
         <main className={`cover ${props.className}`}>
