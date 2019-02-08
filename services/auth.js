@@ -52,7 +52,7 @@ class Auth {
     // Cookie.remove("expiresAt");
 
     this.auth0.logout({
-      returnTo: "",
+      returnTo: process.env.BASE_URL,
       clientID: clientID
     });
   };

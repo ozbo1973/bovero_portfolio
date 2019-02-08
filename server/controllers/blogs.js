@@ -26,7 +26,6 @@ exports.getBlogBySlug = async (req, res) => {
 
 exports.createBlog = async (req, res) => {
   const lockKey = req.user.sub;
-  console.log(lock.isBusy(lockKey));
   if (lock.isBusy(lockKey)) {
     return res.status(422).send({ message: "Currently Saving Blog." });
   } else {
