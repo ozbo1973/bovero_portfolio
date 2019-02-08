@@ -52,6 +52,7 @@ class Index extends React.Component {
         {...this.props.auth}
         className={`cover ${this.state.isFlipping ? "cover-0" : "cover-1"}`}
         headerType="index"
+        title="Brady Bovero - My Portfolio"
       >
         <div className="main-section">
           <div className="background-image">
@@ -86,6 +87,10 @@ class Index extends React.Component {
                 </div>
               </Col>
             </Row>
+            <div className="attribution-link">
+              Vector Graphics by{" "}
+              <a href="https://www.vecteezy.com">vecteezy.com</a>
+            </div>
           </Container>
         </div>
       </Baselayout>

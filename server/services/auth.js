@@ -17,7 +17,7 @@ exports.checkJWT = jwt({
   secret: jwksRsa.expressJwtSecret({
     cache: true,
     rateLimit: true,
-    jwksRequestsPerMinute: 10,
+    jwksRequestsPerMinute: 50,
     jwksUri: "https://ozbo1973.auth0.com/.well-known/jwks.json"
   }),
   audience: "ae0M5PaMElZcUAAulmYXFEyT9TZphsJg",
@@ -27,7 +27,7 @@ exports.checkJWT = jwt({
 
 exports.checkRole = role => (req, res, next) => {
   const user = req.user;
-  if (user && user[namespace + "role"] === role) {
+  if (user && user[`${process.env.BASE_URL}/role`] === role) {
     next();
   } else {
     return res.status(401).send({

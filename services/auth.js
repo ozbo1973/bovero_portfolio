@@ -4,12 +4,14 @@ import Cookie from "js-cookie";
 import jwt from "jsonwebtoken";
 import { getCookieFromReq } from "../helpers/utils";
 
+const clientID = process.env.ClientID;
+
 class Auth {
   constructor() {
     this.auth0 = new auth0.WebAuth({
       domain: "ozbo1973.auth0.com",
-      clientID: "ae0M5PaMElZcUAAulmYXFEyT9TZphsJg",
-      redirectUri: "http://localhost:3000/callback",
+      clientID: clientID,
+      redirectUri: `${process.env.BASE_URL}/callback`,
       responseType: "token id_token",
       scope: "openid profile"
     });
@@ -35,9 +37,9 @@ class Auth {
       authResult.expiresIn * 1000 + new Date().getTime()
     );
 
-    Cookie.set("user", authResult.idTokenPayload);
+    // Cookie.set("user", authResult.idTokenPayload);
     Cookie.set("jwt", authResult.idToken);
-    Cookie.set("expiresAt", expiresAt);
+    // Cookie.set("expiresAt", expiresAt);
   }
 
   login = () => {
@@ -45,13 +47,13 @@ class Auth {
   };
 
   logout = () => {
-    Cookie.remove("user");
+    // Cookie.remove("user");
     Cookie.remove("jwt");
-    Cookie.remove("expiresAt");
+    // Cookie.remove("expiresAt");
 
     this.auth0.logout({
       returnTo: "",
-      clientID: "ae0M5PaMElZcUAAulmYXFEyT9TZphsJg"
+      clientID: clientID
     });
   };
 

@@ -10,8 +10,8 @@ class CV extends React.Component {
   render() {
     const { auth } = this.props;
     return (
-      <Baselayout {...this.props.auth}>
-        <BasePage title={`${auth.user.name}'s CV Preview`} className="cv-page">
+      <Baselayout {...this.props.auth} title="Brady Bovero - Curriculum Vitae">
+        <BasePage title={`My CV Preview`} className="cv-page">
           <Row>
             <Col md={{ size: 8, offset: 2 }}>
               <div className="cv-download-btn">

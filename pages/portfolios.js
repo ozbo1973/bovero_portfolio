@@ -85,7 +85,7 @@ class Portfolios extends React.Component {
       return (
         <NavBtn
           className="create-portfolio-btn"
-          onClick={() => Router.pushRoute("/portfolioNew")}
+          onClick={() => Router.pushRoute("/portfolio/new")}
           color="primary"
           text="Create Portfolio"
         />
@@ -95,7 +95,7 @@ class Portfolios extends React.Component {
 
   render() {
     return (
-      <Baselayout {...this.props.auth}>
+      <Baselayout {...this.props.auth} title="Brady Bovero- All Portfolios">
         <BasePage title="Portfolios" className="portfolio-page">
           {this.renderCreateButton()}
           <div>

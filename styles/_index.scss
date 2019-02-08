@@ -147,3 +147,12 @@
 .back {
   transform: rotateY(-180deg);
 }
+
+.attribution-link {
+  margin-top: 1rem;
+  color: #fff;
+  font-weight: 700;
+  > a {
+    color: #fff;
+  }
+}
