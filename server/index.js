@@ -3,9 +3,11 @@ const path = require("path");
 const next = require("next");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const compression = require("compression");
 
 const routes = require("../routes");
 const config = require("./config");
+
 const bookRoutes = require("./routes/book");
 const portfolioRoutes = require("./routes/portfolios");
 const blogRoutes = require("./routes/blogs");
@@ -32,27 +34,15 @@ app
   .then(() => {
     const server = express();
     server.use(bodyParser.json());
+    server.use(compression());
 
     server.use("/api/v1/book", bookRoutes);
     server.use("/api/v1/portfolios", portfolioRoutes);
     server.use("/api/v1/blogs", blogRoutes);
 
-    // server.get("/api/v1/secret", authServices.checkJWT, (req, res) => {
-    //   res.json(secretData);
-    // });
-
     server.get("/robots.txt", (req, res) => {
       return res.status(200).sendFile("robots.txt", robotsOptions);
     });
-
-    // server.get(
-    //   "/api/v1/onlysiteowner",
-    //   authServices.checkJWT,
-    //   authServices.checkRole("siteOwner"),
-    //   (req, res) => {
-    //     res.json(secretData);
-    //   }
-    // );
 
     server.get("*", (req, res) => {
       return handle(req, res);
@@ -71,7 +61,7 @@ app
 
     server.use(handle).listen(PORT, err => {
       if (err) throw err;
-      console.log(`> ${process.env.BASE_URL}`);
+      console.log(`> Port: ${PORT}`);
     });
   })
   .catch(ex => {

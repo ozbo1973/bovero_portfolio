@@ -1,17 +1,8 @@
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
 
-const namespace = "http://localhost:300/";
-// exports.checkJWT = (req, res, next) => {
-//   const isValid = true;
-//   if (isValid) {
-//     return next();
-//   }
-//   return res.status(401).send({
-//     error: "Not Authorized",
-//     description: "Please login or signup to access."
-//   });
-// };
+const namespace =
+  process.env.NAMESPACE || "https://bovero-portfolio.herokuapp.com";
 
 exports.checkJWT = jwt({
   secret: jwksRsa.expressJwtSecret({
@@ -27,7 +18,8 @@ exports.checkJWT = jwt({
 
 exports.checkRole = role => (req, res, next) => {
   const user = req.user;
-  if (user && user[`${process.env.BASE_URL}/role`] === role) {
+
+  if (user && user[`${namespace}/role`] === role) {
     next();
   } else {
     return res.status(401).send({

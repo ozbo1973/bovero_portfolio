@@ -35,7 +35,7 @@ class Portfolios extends React.Component {
         );
         Router.pushRoute("/portfolios");
       } catch (error) {
-        console.log(error, portfoioItem);
+        console.log(error, portfolioItem);
       }
     }
   };

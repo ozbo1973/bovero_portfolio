@@ -2,6 +2,7 @@ import React from "react";
 import auth0 from "../services/auth";
 import App, { Container } from "next/app";
 import { ToastContainer } from "react-toastify";
+import fonts from "../helpers/fonts";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/main.scss";
@@ -20,11 +21,15 @@ export default class MyApp extends App {
     }
 
     const isSiteOwner =
-      user && user[`${process.env.BASE_URL}/role`] === "siteOwner";
+      user && user[`${process.env.NAMESPACE}/role`] === "siteOwner";
 
     const auth = { user, isAuthenticated: !!user, isSiteOwner };
 
     return { pageProps, auth };
+  }
+
+  componentDidMount() {
+    fonts();
   }
 
   render() {

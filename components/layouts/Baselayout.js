@@ -37,7 +37,7 @@ const Baselayout = props => {
           content="My name is Brady Bovero and I have over 15 years experience with building custom applications and websites."
         />
         <link rel="icon" type="image/ico" href="/static/favicon.ico" />
-        <link
+        {/* <link
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
           integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
@@ -46,7 +46,7 @@ const Baselayout = props => {
         <link
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet"
-        />
+        /> */}
       </Head>
       <div className="layout-container">
         <Header

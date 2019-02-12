@@ -9,6 +9,7 @@ import Baselayout from "../components/layouts/Baselayout";
 import BasePage from "../components/layouts/BasePage";
 
 import { Row, Col, Container } from "reactstrap";
+import { FontAwesome } from "../components/shared/CssLibs";
 
 class Blogs extends React.Component {
   static async getInitialProps() {
@@ -114,6 +115,7 @@ class Blogs extends React.Component {
             </Container>
           </footer>
         </BasePage>
+        <FontAwesome />
       </Baselayout>
     );
   }

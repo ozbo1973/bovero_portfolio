@@ -9,6 +9,8 @@ import { rules } from "./rules";
 import HoverMenu from "./HoverMenu";
 import ControlMenu from "./components/ControlMenu";
 
+import { MaterialIcons } from "../shared/CssLibs";
+
 const html = new Html({ rules });
 
 class SlateEditor extends React.Component {
@@ -118,6 +120,7 @@ class SlateEditor extends React.Component {
         />
         {children}
         <HoverMenu innerRef={menu => (this.menu = menu)} editor={editor} />
+        <MaterialIcons />
       </React.Fragment>
     );
   };

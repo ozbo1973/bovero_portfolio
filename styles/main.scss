@@ -12,11 +12,18 @@
 @import "./cv";
 @import "./index";
 
+.montserrat-loaded {
+  html,
+  body {
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
 html,
 body {
   height: 100%;
   width: 100%;
-  font-family: "Montserrat", sans-serif;
+  font-family: sans-serif;
 }
 
 .bold {
