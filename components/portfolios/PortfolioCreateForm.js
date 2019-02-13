@@ -11,7 +11,7 @@ const PortfolioCreateForm = ({
   onSubmit,
   error,
   submitButtonText,
-  fromPage
+  frompage
 }) => {
   return (
     <div>
@@ -22,7 +22,7 @@ const PortfolioCreateForm = ({
       >
         {({ isSubmitting }) => (
           <Form>
-            {renderFormFields(initialValues, fromPage)}
+            {renderFormFields(initialValues, frompage)}
             {error && <Alert color="danger">{error}</Alert>}
             <FormGroup>
               <Button

@@ -26,7 +26,7 @@ export const validateForm = values => {
   return errors;
 };
 
-export const renderFormFields = (displayValues, fromPage) => {
+export const renderFormFields = (displayValues, frompage) => {
   return Object.keys(displayValues).map(val => {
     const type = val === "description" ? "textarea" : "text";
     const labels = properName(val);
@@ -41,7 +41,7 @@ export const renderFormFields = (displayValues, fromPage) => {
 
     return (
       <Field
-        fromPage={fromPage}
+        frompage={frompage}
         key={`${val}_input`}
         label={`${labels}: `}
         datevalue={dateValue}

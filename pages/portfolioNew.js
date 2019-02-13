@@ -43,7 +43,7 @@ class PortfolioNew extends React.Component {
           <Row>
             <Col sm="12" md={{ size: 6, offset: 3 }}>
               <PortfolioCreateForm
-                fromPage="new"
+                frompage="new"
                 submitButtonText="Create"
                 initialValues={this.INTITIAL_VALUES}
                 error={this.state.error}
