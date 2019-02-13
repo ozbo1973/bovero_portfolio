@@ -1,8 +1,9 @@
 const jwt = require("express-jwt");
 const jwksRsa = require("jwks-rsa");
 
-const namespace =
-  process.env.NAMESPACE || "https://bovero-portfolio.herokuapp.com";
+const config = require("../config");
+
+const namespace = config.NAMESPACE;
 
 exports.checkJWT = jwt({
   secret: jwksRsa.expressJwtSecret({
